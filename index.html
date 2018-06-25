@@ -1,0 +1,43 @@
+<!DOCTYPE  html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>RgrTwo</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="content.css" rel="stylesheet">
+</head>
+<body> 
+<script src="jquery.min.js"></script>
+<script>
+function valid(form){
+    if(form.name.value && form.password.value)call('#formx','../php/log.php');
+    alert("gfg");
+}
+    
+
+function call(formtype,filex){
+		var msg=$(formtype).serialize();
+		$.ajax({type:'POST',
+		url:filex,
+		data:msg,
+		success:success,
+		error:function(xhr,str){
+		alert('Возникла ошибка: '+xhr.responseCode);}});
+}
+function success(result){
+    alert("uuu");
+    var result=$.parseJSON(result);
+    if(result==="True")window.location="page/banner.html";
+    else alert("Проверьте правильность данных!");
+}
+</script>
+
+    
+    <form id="formx" action="javascript:void(null);" method="post" onsubmit="valid(this)">
+        <input id="name" name="name" value="" type="text" placeholder="name..." maxlength="10" required>
+        <input id="password" name="password" value="" type="password" placeholder="password..." maxlength="10" required>       
+        <input value="Вход" type="submit">
+    </form>
+
+</body>
+</html>

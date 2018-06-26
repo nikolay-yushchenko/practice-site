@@ -1,5 +1,5 @@
 function valid(form){
-    if(form.name.value && form.password.value)call('#formx','../php/insertgood.php');
+    if(form.name.value && form.password.value)call('#formx','../php/log.php');
 }
     
 

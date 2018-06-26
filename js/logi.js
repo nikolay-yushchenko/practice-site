@@ -1,5 +1,5 @@
 function valid(form){
-    if(form.name.value && form.password.value)call('#formx','../php/log.php');
+    if(form.name.value && form.password.value)call('#formx','../php/insertgood.php');
 }
     
 
@@ -13,7 +13,5 @@ function call(formtype,filex){
 		alert('Возникла ошибка: '+xhr.responseCode);}});
 }
 function success(result){
-    var result=$.parseJSON(result);
-    if(result==="True")window.location="page/banner.html";
-    else alert("Проверьте правильность данных!");
+alert("ok");
 }
